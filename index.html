@@ -32,7 +32,6 @@
       border: solid black;
       background-color: aliceblue;
     }
-
     html {
       background-color: rgb(124, 143, 250);
     }
@@ -40,12 +39,7 @@
  </head>
  <body>
   <div id="NameAndScore">
-    <ul id="myList">
-
-
-
-
-    </ul>
+    <ul id="myList"></ul>
   </div>
   <div id="students"></div>
   <div id="lowestS"></div>
@@ -54,7 +48,6 @@
   
   <script>
     var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
-
 
     var student = grades.split(",");
 
@@ -71,10 +64,6 @@
       
       console.log(titleCase + ": " + score);
     });
-
-
-
-
 
     var lowest = Infinity;
     var highest = -Infinity;
@@ -110,7 +99,6 @@
     lowestS.innerHTML = "Lowest score: " + lowest;
     highestS.innerHTML = "Highest score: " + highest;
     averageS.innerHTML = "Average score: " + average.toFixed(2);
-
   </script>
  </body>
 </html>
