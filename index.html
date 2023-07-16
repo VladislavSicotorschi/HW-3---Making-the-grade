@@ -49,19 +49,19 @@
   <script>
     var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
 
-    var student = grades.split(",");
+    var student = grades.split(", ");
 
     student.sort();
     
-    student.forEach(function(student) {
-      var [name, score] = student.split("|");
+    student.forEach(function(individualStudent) {
+      var [name, score] = individualStudent.split("|");
       var titleCase = name.charAt(0).toUpperCase() + name.slice(1);
-      
+  
       var myList = document.getElementById("myList");
       var newItem = document.createElement("li");
-      newItem.textContent = titleCase + "/" + score;
-      myList.appendChild(newItem);
-      
+      newItem.textContent = titleCase + ": " + score;
+     myList.appendChild(newItem);
+  
       console.log(titleCase + ": " + score);
     });
 
@@ -69,8 +69,8 @@
     var highest = -Infinity;
     var sum = 0;
 
-    student.forEach(function(student) {
-      var [name, score] = student.split("|");
+    student.forEach(function(studentInfo) {
+      var [name, score] = studentInfo.split("|");
       var numericScore = parseInt(score);
 
       if (numericScore < lowest){
