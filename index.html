@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>Making the Grade</title>
+  <style>
+    #students {
+      margin: auto;
+      border: solid black;
+      background-color: aliceblue;
+      text-align: center;
+    }
+    #lowestS {
+      margin: auto;
+      border: solid black;
+      background-color: aliceblue;
+      text-align: center;
+    }
+    #highestS {
+      margin: auto;
+      border: solid black;
+      background-color: aliceblue;
+      text-align: center;
+    }
+    #averageS {
+      margin: auto;
+      border: solid black;
+      background-color: aliceblue;
+      text-align: center;
+    }
+    #NameAndScore {
+      margin: auto;
+      border: solid black;
+      background-color: aliceblue;
+    }
+
+    html {
+      background-color: rgb(124, 143, 250);
+    }
+  </style>
+ </head>
+ <body>
+  <div id="NameAndScore">
+    <ul id="myList">
+
+
+
+
+    </ul>
+  </div>
+  <div id="students"></div>
+  <div id="lowestS"></div>
+  <div id="highestS"></div>
+  <div id="averageS"></div>
+  
+  <script>
+    var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+
+
+    var student = grades.split(",");
+
+    student.sort();
+    
+    student.forEach(function(student) {
+      var [name, score] = student.split("|");
+      var titleCase = name.charAt(0).toUpperCase() + name.slice(1);
+      
+      var myList = document.getElementById("myList");
+      var newItem = document.createElement("li");
+      newItem.textContent = titleCase + "/" + score;
+      myList.appendChild(newItem);
+      
+      console.log(titleCase + ": " + score);
+    });
+
+
+
+
+
+    var lowest = Infinity;
+    var highest = -Infinity;
+    var sum = 0;
+
+    student.forEach(function(student) {
+      var [name, score] = student.split("|");
+      var numericScore = parseInt(score);
+
+      if (numericScore < lowest){
+        lowest = numericScore;
+      }
+
+      if (numericScore > highest){
+        highest = numericScore;
+      }
+
+      sum += numericScore;
+    });
+
+    var average = sum / student.length;
+
+    console.log("Total number of students: " + student.length);
+    console.log("Lowest score: " + lowest);
+    console.log("Highest score: " + highest);
+    console.log("Average score: " + average.toFixed(2));
+
+    var tStudents = document.querySelector("#students");
+    var lowestS = document.querySelector("#lowestS");
+    var highestS = document.querySelector("#highestS");
+    var averageS = document.querySelector("#averageS");
+    tStudents.innerHTML = "Total number of students: " + student.length;
+    lowestS.innerHTML = "Lowest score: " + lowest;
+    highestS.innerHTML = "Highest score: " + highest;
+    averageS.innerHTML = "Average score: " + average.toFixed(2);
+
+  </script>
+ </body>
+</html>
